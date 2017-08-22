@@ -77,11 +77,11 @@ UserSchema.pre('save', function(next){
             bcrypt.hash(user.password, salt, (err, res) => {
                 user.password = res;
                 next();
-            })
-        })
+            });
+        });
     } else {
         next();
-    }
+    };
 });
 
 var User = mongoose.model('user', UserSchema);
